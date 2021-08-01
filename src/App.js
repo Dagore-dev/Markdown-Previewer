@@ -1,25 +1,17 @@
-import logo from './logo.svg';
+import { useState } from 'react';
+import SAMPLE from './sample';
 import './App.css';
 
-function App() {
+import Editor from './Editor';
+import Preview from './Preview';
+
+export default function App() {
+  const [state, setState] = useState(SAMPLE);
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Editor state={state} setState={setState} />
+      <Preview state={state}/>
+    </>
   );
 }
-
-export default App;
